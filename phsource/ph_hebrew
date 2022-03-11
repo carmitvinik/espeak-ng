@@ -1,0 +1,207 @@
+//====================================================
+//  Hebrew 
+//====================================================
+// Updated : 02-03-2022 
+// Updater : Carmit Vinik <carmitvinik@gmail.com>
+//====================================================
+
+
+//====================================================
+// How to add Scoring letters. Win8+ ver 
+// after the letter press [Right ALT] + [Opt]
+//====================================================
+// ק    | 	  קמץ	אָ 
+// פ    |    	פתח	אַ  
+// ח	  |  חיריק	אִ  
+// ש    | 	שווא	אְ  
+// צ    | 	צירה	אֵ  
+// ס    | 	סגול	אֶ  
+// ו    | 	חולם	אֹ  
+// קובוץ	אֻ  |  \
+// ד    |     	דגש
+// להפקת שורוק יש להוסיף דגש באות ו
+// וּ    |  שורוק אוּ
+// , מפיק	אּ  
+// ‘	ש ימנית	שׁ  
+// /	ש שמאלית	שׂ  
+// ר	חטף-קמץ	אֳ  
+// ]	חטף-פתח	אֲ  
+// ב	חטף-סגול	אֱ  
+//====================================================
+
+// Modern Hebrew is phonetically simpler than Biblical Hebrew and has fewer phonemes
+// https://thereaderwiki.com/en/Modern_Hebrew_phonology
+// It has 25 to 27 consonants and 5 to 10 vowels, depending on the speaker and the analysis
+
+// The International Phonetic Alphabet (IPA) is an 
+// alphabetic system of phonetic notation based primarily 
+// on the Latin script.
+
+
+// Modern Hebrew
+// Biblical Hebrew
+
+// letter     IPA       
+//    פּ       /p/
+//    מ       /m/	
+//    פ       /f/
+//    ת, ט    /t/
+//    צ       /ts/
+//    ס, שׂ    /s/
+//    נ       /n/
+//    צ׳, תשׁ   /tʃ/	
+//    ש       /ʃ/
+//    י       /j/
+//    כּ, ק    /k/	
+//    כ, ח    /χ/	
+//    ח       /ħ/	
+//    א, ע    /ʔ/	
+//    בּ       /b/	
+//    ב, ו    /v/	
+//    ד       /d/	
+//    ז       /z/	
+//    ל       /l/	
+//    ג׳      /dʒ/	
+//    ז׳      /ʒ/	
+//    ו       /w/	
+//    ג       /ɡ/	
+//    ר       /r/	
+//    ע       /ʕ/	
+//    ה       /h/	
+// ******** 26 letters phonemes *********
+//    ipa   ->    sampa
+//    ʃ     ->    S
+//    ʕ     ->    ?`
+//    dʒ    ->    dZ
+// **************************************
+
+// In Traditional Hebrew words can end with an H consonant, 
+// e.g. when the suffix "-ah" is used, meaning "her" (see Mappiq). 
+// The final H sound is hardly ever pronounced in Modern Hebrew.
+//  הּ mapiq   -ah (sampa)
+
+// ======================
+// 2 diphthongs:  
+//=======================
+// 1    אָי    aj (sampa)
+// 2    אֵי    ej
+//=======================
+
+// ======================
+//  5 Vowels:
+// ======================
+// vowel   sign
+//   a     קָ פַּ
+//   e     צֵ סֶ
+//   i     חִ
+//   o     חׂ    //  r-alt+/
+//   u     קוּ קֻ   // r-alt+וּ  || r-alt + \
+// ======================
+// shva
+// shva nah - the letter sound the same with or without the sign
+// shva na - the letter sounds the same as with e vowel
+
+//  lexical stress 
+//  milrah milrá מִלְּרַע
+//  milel mil‘él מִלְּעֵיל
+//  /ˈoχel/ noun means food
+//  /oˈχel/	verb means eating
+
+
+phoneme a  // פתח קמץ
+  vwl  starttype #a  endtype #a
+  IF nextPhW(isVowel)  THEN
+    length 220
+  ELSE
+    length 170
+  ENDIF
+  FMT(vowel/a_7)
+endphoneme
+
+phoneme e // צרה סגול
+  vwl starttype #e  endtype #e
+  IF nextPh(l/) THEN
+    VowelEnding(l/xl, -20)
+  ELIF nextPh(isVowel) THEN
+    length 220
+  ELSE
+    length 170
+  ENDIF
+  FMT(vowel/e_8)
+endphoneme
+
+phoneme o // חולם
+  vwl starttype #o  endtype #o
+  IF nextPh(isVowel)  THEN
+    length 220
+  ELSE
+    length 170
+  ENDIF
+  IF thisPh(isFinalVowel) THEN
+    FMT(vowel/o_8)
+  ELSE
+    FMT(vowel/o)
+  ENDIF
+endphoneme
+
+phoneme u // קובוץ שורוק
+  vwl starttype #u  endtype #u
+  IF nextPh(isVowel)  OR nextPh(j) THEN
+    length 220
+  ELSE
+    length 170
+  ENDIF
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme i // חיריק
+  vwl starttype #i endtype #i
+  IF nextPhW(isVowel) THEN
+    length 220
+  ELSE
+    length 170
+  ENDIF
+  FMT(vowel/i)
+endphoneme
+
+
+// this double quote tag have an abbreviation meaning
+// in hebrew and cant be ignored as an unspoken
+// it is a temporary solution I create 
+// so it can be added to the rules of the language.
+phoneme "
+  vls alv stp
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ELIF nextPh(r) OR nextPh(R) OR nextPh(R2) THEN
+    WAV(ustop/tr)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/t_dnt, 50)
+  ENDIF
+  WAV(ustop/t, 90)
+endphoneme
+
+// this phoneme replace the single quote tag 
+// which have a meaning of single sign in hebrew
+
+phoneme ^
+  vls alv stp
+  voicingswitch d
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ELIF nextPh(r) OR nextPh(R) OR nextPh(R2) THEN
+    WAV(ustop/tr)
+  ELIF nextPh(@-) THEN
+    WAV(ustop/t_dnt, 50)
+  ENDIF
+  WAV(ustop/t, 90)
+endphoneme

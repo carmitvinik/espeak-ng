@@ -377,6 +377,7 @@ phsource/phonemes.stamp: \
 	phsource/ph_haitian \
 	phsource/ph_hakka \
 	phsource/ph_hawaiian \
+	phsource/ph_hebrew \
 	phsource/ph_hindi \
 	phsource/ph_hindi_base \
 	phsource/ph_hungarian \
@@ -737,7 +738,7 @@ haw: espeak-ng-data/haw_dict
 espeak-ng-data/haw_dict: dictsource/haw_list dictsource/haw_rules dictsource/haw_extra
 
 he: espeak-ng-data/he_dict
-espeak-ng-data/he_dict: dictsource/he_list dictsource/he_rules dictsource/he_extra
+espeak-ng-data/he_dict: dictsource/he_list dictsource/he_rules 
 
 hi: espeak-ng-data/hi_dict
 espeak-ng-data/hi_dict: dictsource/hi_list dictsource/hi_rules dictsource/hi_extra dictsource/hi_emoji

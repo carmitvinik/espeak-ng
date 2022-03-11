@@ -1,22 +1,145 @@
-.replace
-׳	'
+// ***************************************************************************
+// *   Copyright (C) 2005 to 2014 by Jonathan Duddington                     *
+// *   email: jonsd@users.sourceforge.net                                    *
+// *                                                                         *
+// *   Copyright (C) 2021 Hebrew Contribution by Carmit Vinik                *
+// *   email: carmitvinik@gmail.com                                          *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+// File Encoding: UTF-8
+// Language-Name: Hebrew
+// Language-Family: sem
+// Language Code: he
+// Contributors: [["carmitvinik@gmail.com"],["anyoneElse.?.@"]]
+// 
+// ***************************************************************************/
 
+// ה בסוף מילה שותקת
+// א בסוף מילה שותקת
+// ובתיחלת מילה מילת חיבור
+// בגדכפת בראש מילה מודגש קל
+// אותיות מש"ה – מילת היחס מ', ש' הזיקה, ה' הידיעה
+// אותיות משה בתחילת מילה
+// מ עם חיריק
+// ש עם סגול
+// ה הידיעה עם פתח ואחריה דגש אם האות גרונית לפעמים סגול
+//  וכלב מנוקדות בשווה שנשמע כמו צרה
+// ו החיבור
+//  ו החיבור לפני אותיות בומפ הופכת לשורוק
+//  לפני מילה המתחילה ביוד  היא הופכת לחיריק ואחריה התנועה שווה
+//  באותיות כלב יש מספר מילים יוצאות דופן
+// https://hebrew-academy.org.il/2013/07/18/%D7%A0%D7%99%D7%A7%D7%95%D7%93-%D7%90%D7%95%D7%AA%D7%99%D7%95%D7%AA-%D7%94%D7%A9%D7%99%D7%9E%D7%95%D7%A9/
+
+
+
+
+
+
+.replace
+'      ^
+
+// Letters
+.L01 א ב ג ד ה ו ז ח ט י כ ל מ נ ס ע פ צ ק ר ש ת
+// suffix letters 
+.L02 ך ם ן ף ץ 
+// אם קריאה שאינה מייצגת עיצור
+.L03 א ה ו י
+// סוכם שאין דבר כזה קמץ קטן ונקרא בסגנון ספרד שהקמץ לעולם לא קמץ קטן
+
+
+
+.group ^
+       _)^   merxa
+       // Hebrew letters with mercha
+       _א_)^(_     'alef||              
+       _ב_)^(_	bet||
+       _ג_)^(_	'gimel||
+       _ד_)^(_	'dalet||
+       _ה_)^(_	he||
+       _ו_)^(_	vav||
+       _ז_)^(_	z'ajin||
+       _ח_)^(_	xet||
+       _ט_)^(_	tet||
+       _י_)^(_	jod||
+       _ך_)^(_	kaf||sofit||
+       _כ_)^(_	kaf||
+       _ל_)^(_	l'amed||
+       _ם_)^(_	mem||sofit||
+       _מ_)^(_	mem||
+       _ן_)^(_	nun||sofit||
+       _נ_)^(_	nun||
+       _ס_)^(_	s'amex||
+       _ע_)^(_	?'ajin||
+       _ף_)^(_	pe||sofit||
+       _פ_)^(_	pe||
+       _ץ_)^(_	ts'adi||sofit||
+       _צ_)^(_	ts'adi||
+       _ק_)^(_	kuf||
+       _ר_)^(_	ReS||
+       _ש_)^(_	S'in||
+       _ת_)^(_	tav||
+       // letters with mercha which is sound different
+       _ג_)^(י       dZi
+       _ג_)^(_י     dZi
+       _ג_)^(_יL01   dZi
+       _ג_)^(_ינL01  dZin
+       L01ג_)^(_י_   dZi
+
+        _ג_)^(_יסL01  dZis
+        L01ג_)^(_יס   dZis
+       _ג_)^(_ירפה     dZi|R'afa||
+
+      
+
+.group "     //abbreviations (acronym)
+       _)"      merxa?ot||
+      // L01_) " (_L01   raSei
+       "(א     faLef
+       "(ב     fa
+       "(ג     fa
+       _א_)"(_א_    ?i||efSar
+       _בס_)"(_ד_    besi?'at|ta||deSm'a?h|jah'||
+       _ב_)"(_ה_     b'e||?'ezr'at||haS'em
+       _א_)"(_ב_     'alef||bet||'
+     
 .group א
        א        ?
-       אַ        a
-       אַי        ai
-       אֵ        e
-       אֶ        e
-       אֶי        ei
        אְ        ?
-       אִ        i
-       אוֹ        o
-       אוֹי        oi
-       אי        i
-       אוּ        u
-       אוּי        ui
-       אָ        o
-       אָ        a
+       אָ        ?a
+       _) אָב       ?av'|
+       _) אֵב    ?ev|
+
+       אַ        ?a
+       אֵ        ?e
+       אֶ        ?e
+       אִ        ?i
+       אֹ        ?o 
+       אוּ       ?u
+       אי       ?i
+       אַי       ?ai
+       אֶי       ?ei
+       אוֹ       ?o
+       אוֹי      ?oi
+       אוּי      ?ui
+       _) אַ (ת       at
+       
+  
+  
+       
+
 
 .group ב
        ב        v
@@ -42,6 +165,8 @@
        בׇּ        bo
        בָּ        ba
 
+       
+
 .group ג
        ג        g
        גַ        ga
@@ -62,6 +187,7 @@
        גִ'        dZi
        ג'וֹ        dZo
        ג'י        dZi
+
        ג'וּ        dZu
        גׇ'       dZo
        גָ'       dZa
@@ -193,8 +319,6 @@
 
 .group ך
        ך        X
-       ךָ        Xa
-       ךְ        X
 
 .group ל
        ל        l
@@ -237,10 +361,10 @@
        נוּ        nu
        נׇ        no
        נָ        na
-       נג        N
+       
 
 .group ן
-       ן        n
+       ן        n||
 
 .group ס
        ס        s
@@ -339,6 +463,7 @@
        קוּ        ku
        קׇ        ko
        קָ        ka
+       
 
 .group ר
        ר        Q"
@@ -356,32 +481,34 @@
 .group ש
        ש        S
        שׁ        S
-       שַׁ        Sa
-       שֵׁ        Se
-       שֶׁ        Se
-       שְׁ        S
-       שִׁ        Si
-       שׁוֹ        So
-       שׁי        Si
-       שׁוּ        Su
-       שׇׁ        So
-       שָׁ        Sa
-       שׂ        s
-       שַׂ        sa
-       שֵׂ        se
-       שֶׂ        se
-       שְׂ        s
-       שִׂ        si
-       שׂוֹ        so
-       שׂי        si
-       שׂוּ        su
-       שׇׂ        so
-       שָׂ        sa
+       שַׁ        Sha
+       שֵׁ        She
+       שֶׁ        She
+       שְׁ        Sh
+       שִׁ        Shi
+       שׁוֹ        Sho
+       שׁי        Shi
+       שׁוּ        Shu
+       שׇׁ        Sho
+       שָׁ        Sha
+       שׂ        sh
+       שַׂ        sha
+       שֵׂ        she
+       שֶׂ        she
+       שְׂ        sh
+       שִׂ        shi
+       שׂוֹ        sho
+       שׂי        shi
+       שׂוּ        shu
+       שׇׂ        sho
+       שָׂ        sha
 
 .group ת
        ת        t
        תַ        ta
        תֵ        te
+       תֵק       tek'
+
        תֶ        te
        תְ        t
        תִ        ti

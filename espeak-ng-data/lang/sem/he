@@ -1,4 +1,6 @@
-name Hebrew
+name Hebrew (Israel)
 language he
-
-status testing
+language he-IL
+maintainer Carmit Vinik <carmitvinik@gmail.com>
+dictrules 1
+tunes s3 c3 q3 e3

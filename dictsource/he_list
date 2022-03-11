@@ -1,34 +1,125 @@
-// names of letters
-א   alef?
-בּ   bet
-ב   vet
-ג   'gimel
-ד   'dalet
-ה   he
-ו   vav
-ז   'zajin
-ח   Xet
-ט   tet
-י   jod
-כּ   kaf
-כ   Xaf
-ךּ   kaf sofit
-ך   Xaf sofit
-ל   'lamed
-מ   mem
-ם   mem sofit
-נ   nun
-ן   nun sofit
-ס   'sameX
-ע   ?ajin
-פּ   pe
-פ   fe
-ף   pe sofit
-צ  'tsadi
-ץ  'tsadi sofit
-ק  kof
-ר  Q"eS
-שׁ  Sin
-שׂ  sin
-תּ  tav
-ת  Tav
+
+
+// Hebrew letters
+//א	'alef||
+//ב	bet||
+//ג	'gimel||
+//ד	'dalet||
+//ה	he||
+//ו	vav||
+//ז	z'ajin||
+//ח	xet||
+//ט	tet||
+//י	jod||
+//ך	kaf||sofit||
+//כ	kaf||
+//ל	l'amed||
+//ם	mem||sofit||
+//מ	mem||
+//ן	nun||sofit||
+//נ	nun||
+//ס	s'amex||
+//ע	?'ajin||
+//ף	pe||sofit||
+//פ	pe||
+//ץ	ts'adi||sofit||
+//צ	ts'adi||
+//ק	kuf||
+//ר	ReS||
+//ש	S'in||
+//ת	tav||
+
+
+
+_ְ	Sva:
+_ֱ	e
+_ֲ	a
+_ֳ	o
+_ִ	i:
+_ֵ	e
+_ֶ	e
+_ַ	a
+_ָ	a
+_ֹ	o
+_ֻ	u
+_ּ	d'ageS
+_־	makaf_
+_"	merxaot
+
+
+//words 
+אותיות     oti_jot||
+
+// ביטוי ברכה
+שלום	 S?a'lo'm||
+ביי	 baji||
+להתראות 	lehittra?'ot||
+תודה	 toda||
+(תודה רבה)	toda||raba||
+בהצלחה	 be||hatz|la|h?'a||
+(מה נשמע)	 ma||nishma?||
+(מה קורה)	 ma||kore?||
+(איך אתה מרגיש)	?
+(איך את מרגישה)	?
+(מה שלומךָ)	ma||SlomXa?||
+(מה שלומך)	ma||SlomeX||
+
+
+// מילות יחס
+אני	'?an'i||
+אתה	'?ata||
+את	'?at||
+הוא 	'hu?||
+היא	'hi?||
+אנחנו	'?an'axnu||
+אתם	'?atem||
+אתן	'?aten||
+הם	'hem||
+הן	'hen||
+זה	'ze||
+זו	'zo||
+זאת	'zot||
+
+// שמות של בנות
+כרמית	kar'mit||
+
+// איברי גוף
+עין	??'ajin||
+עיניים	??'ejn'ajim||
+אוזן 	?'ozen||
+אף 	?af||
+פה	p'e||
+פנים	p'an'im||
+ראש 	roS||
+כתף	kat'ef||
+שערות	se'?a'rot||
+
+// questions
+מי	'mi||
+// מה	'ma||
+מתי	m'at'aj||
+מדוע	 mad'u?a||
+למה	l'ama||
+איך	?ex||
+היכן	?exan||
+איפוא	?ejfo?||
+לאן	le?an||
+כיצד	kejtzad||
+איכה	?ejxa||
+(ג' ירפה)	girafa||
+(בית ספר)  bet||tzefer||
+רוצֵה	 rotse||
+רוצֶה	 rotse||
+רוצָה	 rotsa||
+
+
+חדש 	hadaS||
+
+
+
+
+	
+
+
+
+
